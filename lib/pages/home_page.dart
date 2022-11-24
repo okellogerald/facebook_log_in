@@ -36,7 +36,7 @@ class HomePage extends ConsumerWidget {
             onPressed: () {
               ref.read(authStateProvider.notifier).logIn();
             },
-            child: const Text("Sign Up With Facebook"),
+            child: const Text("Sign In With Facebook"),
           )
         ],
       ),

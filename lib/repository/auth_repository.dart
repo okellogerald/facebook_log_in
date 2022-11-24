@@ -12,7 +12,6 @@ class AuthRepository {
     await FacebookAuth.instance.login();
 
     final result = await FacebookAuth.instance.getUserData();
-    log(result.toString());
     return User(
       name: result['name'],
       email: result["email"],
