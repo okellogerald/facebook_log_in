@@ -12,7 +12,7 @@ class AuthRepository {
     if (result.accessToken == null) throw "Access token not found";
 
     final credential =
-        FacebookAuthProvider.credential(result.accessToken?.token ?? "");
+        FacebookAuthProvider.credential(result.accessToken!.token);
     await FirebaseAuth.instance.signInWithCredential(credential);
     final data = await FacebookAuth.instance.getUserData();
 
@@ -23,7 +23,6 @@ class AuthRepository {
     );
   }
 
-  Future<void> signOutFromFacebook() async {
-    await FacebookAuth.instance.logOut();
-  }
+  Future<void> signOutFromFacebook() async =>
+      await FacebookAuth.instance.logOut();
 }

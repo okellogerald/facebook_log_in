@@ -15,6 +15,7 @@ dependencies:
   hive: ^2.2.3
   flutter_facebook_auth: ^5.0.6
   firebase_auth:
+  firebase_core: ^2.3.0
 
 dev_dependencies:
   flutter_test:
