@@ -13,13 +13,15 @@ class AuthRepository {
 
     final credential =
         FacebookAuthProvider.credential(result.accessToken!.token);
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    final userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
     final data = await FacebookAuth.instance.getUserData();
 
     return User(
       name: data['name'],
       email: data["email"],
       image: data['picture']['data']['url'],
+      id: userCredential.user!.uid,
     );
   }
 
